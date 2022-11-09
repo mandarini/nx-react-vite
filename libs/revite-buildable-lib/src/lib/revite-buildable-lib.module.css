@@ -2,6 +2,11 @@
  * Replace this with your own classes
  *
  * e.g.
- * .container {
- * }
+
 */
+.container {
+  background-color: brown;
+  height: 50vw;
+  width: 50vw;
+  color: aliceblue;
+}
