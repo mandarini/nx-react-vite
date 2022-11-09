@@ -5,24 +5,13 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/webpack:webpack",
+      "executor": "@nrwl/vite:build",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "compiler": "babel",
+        "uiFramework": "react",
         "outputPath": "dist/apps/revite-scss",
-        "index": "apps/revite-scss/src/index.html",
-        "baseHref": "/",
-        "main": "apps/revite-scss/src/main.tsx",
-        "polyfills": "apps/revite-scss/src/polyfills.ts",
-        "tsConfig": "apps/revite-scss/tsconfig.app.json",
-        "assets": [
-          "apps/revite-scss/src/favicon.ico",
-          "apps/revite-scss/src/assets"
-        ],
-        "styles": ["apps/revite-scss/src/styles.scss"],
-        "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "baseHref": "/"
       },
       "configurations": {
         "development": {
@@ -48,11 +37,12 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/webpack:dev-server",
+      "executor": "@nrwl/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "revite-scss:build",
-        "hmr": true
+        "uiFramework": "react",
+        "outputPath": "dist/apps/revite-scss",
+        "baseHref": "/"
       },
       "configurations": {
         "development": {
