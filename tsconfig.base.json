@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nxvite/revite-buildable-lib": [
+        "libs/revite-buildable-lib/src/index.ts"
+      ],
       "@nxvite/revite-lib": ["libs/revite-lib/src/index.ts"]
     }
   },
