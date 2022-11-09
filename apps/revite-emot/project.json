@@ -5,24 +5,13 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/webpack:webpack",
+      "executor": "@nrwl/vite:build",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "compiler": "babel",
+        "uiFramework": "react",
         "outputPath": "dist/apps/revite-emot",
-        "index": "apps/revite-emot/src/index.html",
-        "baseHref": "/",
-        "main": "apps/revite-emot/src/main.tsx",
-        "polyfills": "apps/revite-emot/src/polyfills.ts",
-        "tsConfig": "apps/revite-emot/tsconfig.app.json",
-        "assets": [
-          "apps/revite-emot/src/favicon.ico",
-          "apps/revite-emot/src/assets"
-        ],
-        "styles": [],
-        "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "baseHref": "/"
       },
       "configurations": {
         "development": {
@@ -48,11 +37,12 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/webpack:dev-server",
+      "executor": "@nrwl/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "revite-emot:build",
-        "hmr": true
+        "uiFramework": "react",
+        "outputPath": "dist/apps/revite-emot",
+        "baseHref": "/"
       },
       "configurations": {
         "development": {
