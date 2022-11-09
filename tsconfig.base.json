@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nxvite/revite-lib": ["libs/revite-lib/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

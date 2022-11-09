@@ -1,0 +1,84 @@
+{
+  "name": "revite-styl",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/revite-styl/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/revite-styl",
+        "index": "apps/revite-styl/src/index.html",
+        "baseHref": "/",
+        "main": "apps/revite-styl/src/main.tsx",
+        "polyfills": "apps/revite-styl/src/polyfills.ts",
+        "tsConfig": "apps/revite-styl/tsconfig.app.json",
+        "assets": [
+          "apps/revite-styl/src/favicon.ico",
+          "apps/revite-styl/src/assets"
+        ],
+        "styles": ["apps/revite-styl/src/styles.styl"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/revite-styl/src/environments/environment.ts",
+              "with": "apps/revite-styl/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "revite-styl:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "revite-styl:build:development"
+        },
+        "production": {
+          "buildTarget": "revite-styl:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/revite-styl/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/revite-styl/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

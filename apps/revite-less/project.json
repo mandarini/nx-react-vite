@@ -1,0 +1,84 @@
+{
+  "name": "revite-less",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/revite-less/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/revite-less",
+        "index": "apps/revite-less/src/index.html",
+        "baseHref": "/",
+        "main": "apps/revite-less/src/main.tsx",
+        "polyfills": "apps/revite-less/src/polyfills.ts",
+        "tsConfig": "apps/revite-less/tsconfig.app.json",
+        "assets": [
+          "apps/revite-less/src/favicon.ico",
+          "apps/revite-less/src/assets"
+        ],
+        "styles": ["apps/revite-less/src/styles.less"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/revite-less/src/environments/environment.ts",
+              "with": "apps/revite-less/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "revite-less:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "revite-less:build:development"
+        },
+        "production": {
+          "buildTarget": "revite-less:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/revite-less/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/revite-less/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
