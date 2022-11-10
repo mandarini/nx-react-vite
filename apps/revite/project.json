@@ -9,9 +9,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "uiFramework": "react",
-        "outputPath": "dist/apps/revite",
-        "baseHref": "/"
+        "outputPath": "dist/apps/revite"
       },
       "configurations": {
         "development": {
@@ -40,9 +38,7 @@
       "executor": "@nrwl/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "uiFramework": "react",
-        "outputPath": "dist/apps/revite",
-        "baseHref": "/"
+        "outputPath": "dist/apps/revite"
       },
       "configurations": {
         "development": {

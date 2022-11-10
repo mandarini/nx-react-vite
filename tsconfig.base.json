@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@nxvite/deep-imp": ["libs/deep-imp/src/index.ts"],
+      "@nxvite/reactlibrarybud": ["libs/reactlibrarybud/src/index.ts"],
       "@nxvite/revite-buildable-lib": [
         "libs/revite-buildable-lib/src/index.ts"
       ],
