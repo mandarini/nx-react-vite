@@ -38,7 +38,7 @@
       "executor": "@nrwl/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "outputPath": "dist/apps/revite"
+        "buildTarget": "revite:build:development"
       },
       "configurations": {
         "development": {
